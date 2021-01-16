@@ -8,12 +8,12 @@ namespace Franklin.Lib
     {
         private const string EXERCISE_NAMESPACE = "Exercises";
 
-        public static Type[] GetExerciseClasses() =>
+        public static ExerciseClass[] GetExerciseClasses() =>
             Assembly.GetExecutingAssembly()
                 .GetTypes()
-                .Where(t => t.Namespace.EndsWith(EXERCISE_NAMESPACE))
+                .Where(t => t.IsClass && t.Namespace.EndsWith(EXERCISE_NAMESPACE))
+                .Select(t => new ExerciseClass(t))
                 .ToArray();
-        
         
     }
 }

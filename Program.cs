@@ -11,15 +11,24 @@ namespace Franklin
         {
             var exercises = Reflector.GetExerciseClasses();
 
-            var exerciseMenuItems =
-                exercises.Select(e =>
-                    new MenuItem(
-                        e.Name,
-                        () => WriteLine($"You selected {e.Name}")
-                    ))
-                    .ToList();
-            var exerciseMenu = new Menu("Select an Exercise", exerciseMenuItems);
+            var exerciseMenu =
+                new Menu("Select an Exercise",
+                          exercises.Select(e =>
+                              new MenuItem(
+                                  e.Name,
+                                  () => MenuForExercise(e).Run()))
+                              .ToList());
+
             exerciseMenu.Run();
-       }
+        }
+
+        static Menu MenuForExercise(ExerciseClass ec) =>
+            new Menu(ec.Name,
+                     ec.Methods.Select(m =>
+                        new MenuItem(
+                            m.ToString(),
+                            () => WriteLine($"You selected {m.Name}")))
+                        .ToList());
+
     }
 }
