@@ -1,6 +1,7 @@
 ﻿using System;
 using static System.Console;
 using Franklin.Lib;
+using System.Linq;
 
 namespace Franklin
 {
@@ -10,10 +11,15 @@ namespace Franklin
         {
             var exercises = Reflector.GetExerciseClasses();
 
-            foreach (var e in exercises)
-            {
-                WriteLine(e.Name);
-            }
-        }
+            var exerciseMenuItems =
+                exercises.Select(e =>
+                    new MenuItem(
+                        e.Name,
+                        () => WriteLine($"You selected {e.Name}")
+                    ))
+                    .ToList();
+            var exerciseMenu = new Menu("Select an Exercise", exerciseMenuItems);
+            exerciseMenu.Run();
+       }
     }
 }
