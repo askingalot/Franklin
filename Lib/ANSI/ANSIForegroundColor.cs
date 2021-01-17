@@ -1,5 +1,8 @@
 namespace Franklin.Lib.ANSI
 {
+    // Inspired by
+    // https://www.jerriepelser.com/blog/using-ansi-color-codes-in-net-console-apps/
+    // https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
     public static class ANSIForegroundColor
     {
         public static string ResetCode => "\u001b[0m";

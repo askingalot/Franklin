@@ -13,8 +13,7 @@ namespace Franklin.Lib
         public static string Highlight(string input) =>
             string.Join("",
                 Tokenize(input)
-                    .Select(token => 
-                        _typeColorMap[token.type](token.lexeme)));
+                    .Select(token => _typeColorMap[token.type](token.lexeme)));
 
         private static (TokenType type, string lexeme)[] Tokenize(string code) =>
             Regex.Split(code, @"\b")
