@@ -44,6 +44,7 @@ namespace Franklin.Lib
 
         private string PrintMenu()
         {
+            Clear();
             WriteLine();
             WriteLine(_title);
             for (var i = 1; i <= _items.Count; i++)
@@ -51,6 +52,7 @@ namespace Franklin.Lib
                 WriteLine($" {i}) {_items[i - 1].Text}");
             }
             WriteLine(" 0) Exit");
+            WriteLine();
             Write("> ");
 
             var result = ReadLine();

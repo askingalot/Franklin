@@ -1,7 +1,8 @@
-﻿using System;
+﻿using System.Linq;
 using static System.Console;
+using static Franklin.Lib.SyntaxHighlighter;
+
 using Franklin.Lib;
-using System.Linq;
 
 namespace Franklin
 {
@@ -26,8 +27,11 @@ namespace Franklin
             new Menu(ec.Name,
                      ec.Methods.Select(m =>
                         new MenuItem(
-                            m.ToString(),
-                            () => WriteLine($"You selected {m.Name}")))
+                            Highlight(m.ToString()),
+                            () => {
+                                WriteLine($"You selected {m.Name}");
+                                ReadKey();
+                            }))
                         .ToList());
 
     }
