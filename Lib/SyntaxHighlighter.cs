@@ -44,7 +44,7 @@ namespace Franklin.Lib
         private static string[] _keywords =
             { "public", "private", "new", "if", "else", "while" };
         public static string[] _builtInTypes =
-            { "int", "long", "float", "double", "bool", "string" };
+            { "int", "long", "float", "double", "decimal", "bool", "string" };
         public static string[] _symbols =
             { "(", ")", "()", "{", "}", "{}", "[", "]", "[]",
               ";", ",", "+", "-", "*", "/", "=", "++", "--",

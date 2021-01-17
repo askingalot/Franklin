@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using static System.Reflection.BindingFlags;
 
-namespace Franklin.Lib
+namespace Franklin.Lib.Exercise
 {
     public class ExerciseClass
     {

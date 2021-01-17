@@ -1,10 +1,16 @@
+using static System.Console;
+using Franklin.Lib.Exercise;
+using static Franklin.Lib.ArgumentReader;
+
 namespace Franklin.Lib
 {
-    public class Executer
+    public static class Executer
     {
-        public void Execute(ExerciseMethod method)
+        public static void Execute(ExerciseMethod method)
         {
-            
+            var args = ReadArguments(method);
+            var result = method.Invoke(args);
+            WriteLine(result);
         }
     }
 }

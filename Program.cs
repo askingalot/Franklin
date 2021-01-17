@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using static System.Console;
 using static Franklin.Lib.SyntaxHighlighter;
+using static Franklin.Lib.Executer;
 
 using Franklin.Lib;
+using Franklin.Lib.Exercise;
 
 namespace Franklin
 {
@@ -29,7 +31,7 @@ namespace Franklin
                         new MenuItem(
                             Highlight(m.ToString()),
                             () => {
-                                WriteLine($"You selected {m.Name}");
+                                Execute(m);
                                 ReadKey();
                             }))
                         .ToList());
