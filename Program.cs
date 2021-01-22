@@ -32,6 +32,7 @@ namespace Franklin
                             Highlight(m.ToString()),
                             () => {
                                 Execute(m);
+                                Write("Press any key to continue...");
                                 ReadKey();
                             }))
                         .ToList());
